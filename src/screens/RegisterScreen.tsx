@@ -20,7 +20,7 @@ interface Message {
 }
 
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }: any) => {
 
     //hooks useState para el formulario
     const [formRegister, setformRegister] = useState<FormRegister>({
@@ -107,6 +107,9 @@ export const RegisterScreen = () => {
 
                 INICIAR
             </Button>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.textRedirect}>Si tienes una cuenta, Inicia sesion</Text>
+            </TouchableOpacity>
             <Snackbar
                 style={{ backgroundColor: showMessage.color }}
                 visible={showMessage.visible}

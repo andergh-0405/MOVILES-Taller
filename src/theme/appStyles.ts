@@ -19,6 +19,14 @@ text:{
 button:{
     width:'90%',
     
+},
+textRedirect:{
+    padding:20,
+    fontSize:15,
+    color:"blue",
+    fontWeight:"bold",
+    textAlign:"center",
+    textDecorationLine:"underline"
 }
 
 });
