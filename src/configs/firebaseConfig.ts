@@ -1,6 +1,8 @@
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
+import { getDatabase } from 'firebase/database';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -13,7 +15,8 @@ const firebaseConfig = {
   projectId: "juego-42724",
   storageBucket: "juego-42724.firebasestorage.app",
   messagingSenderId: "713910653128",
-  appId: "1:713910653128:web:27447fc854f12d1e0395fd"
+  appId: "1:713910653128:web:27447fc854f12d1e0395fd",
+  databaseURL:"https://juego-42724-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
@@ -21,3 +24,4 @@ const firebase = initializeApp(firebaseConfig);
 export const auth = initializeAuth(firebase, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
+export const dbRealtime = getDatabase(firebase);

@@ -6,13 +6,68 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e0f7fa', // Fondo cyan claro
+    backgroundColor: '#e0f7fa',
     paddingHorizontal: 20,
     paddingVertical: 40,
   },
   logoContainer: {
     marginBottom: 30,
     alignItems: 'center',
+  },
+  inputMessage: {
+    height: "50%",
+    textAlignVertical: 'top',
+  },
+  icon: {
+    alignItems: 'flex-end',
+    flex: 1,
+  }, commentItem: {
+    backgroundColor: '#ffffff',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  commentAuthor: {
+    fontWeight: 'bold',
+    color: '#006064',
+    marginBottom: 4,
+  }, 
+  commentText: {
+    fontSize: 15,
+    color: '#263238',
+    lineHeight: 20,
+  },
+  messageEmpty: {
+    textAlign: 'center',
+    color: '#757575',
+    fontStyle: 'italic',
+    padding: 20,
+  },
+  modalComments: {
+    backgroundColor: '#ffffff',
+    margin: 20,
+    padding: 0,
+    borderRadius: 20,
+    elevation: 8,
+    flex: 1,
+    maxHeight: '85%',
+  },
+  headerModal: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    paddingBottom: 8,
+  },
+  iconButton: {
+    marginLeft: 8,
   },
   text: {
     fontSize: 32,
@@ -33,7 +88,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 14,
     marginBottom: 16,
-    elevation: 2, // Sombra en Android
+    elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -63,15 +118,148 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     textDecorationLine: 'underline',
   },
-  // Estilos para el Snackbar (mensajes)
   snackbar: {
     borderRadius: 10,
     marginBottom: 20,
   },
-  containerActivity:{
-    flex:1,
+  containerActivity: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
 
-}
+  },
+  headerProfile: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    color: '#006064',
+  },
+  containerB: {
+    flex: 1,
+    backgroundColor: '#e0f7fa',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 8,
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: 400,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#006064',
+    marginBottom: 16,
+    textAlign: 'center',
+    letterSpacing: 0.5,
+  },
+  attempts: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#00838f',
+    marginBottom: 20,
+  },
+  message: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 28,
+    color: '#263238',
+    lineHeight: 24,
+    paddingHorizontal: 10,
+  },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  input: {
+    borderWidth: 2,
+    borderColor: '#80deea',
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: '600',
+    color: '#006064',
+    backgroundColor: '#f1f8e9',
+    flex: 1,
+    maxWidth: 120,
+  },
+  guessButton: {
+    backgroundColor: '#00bfa5',
+    paddingHorizontal: 22,
+    paddingVertical: 14,
+    borderRadius: 14,
+    minWidth: 100,
+    alignItems: 'center',
+  },
+  restartButton: {
+    backgroundColor: '#00acc1',
+    paddingHorizontal: 24,
+    paddingVertical: 14,
+    borderRadius: 14,
+    minWidth: 180,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: 'bold',
+  },
+  modal: {
+    backgroundColor: '#ffffff',
+    padding: 20,
+    marginHorizontal: 20,
+    borderRadius: 12,
+    gap: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    margin: 20,
+    padding: 20,
+    borderRadius: 16,
+    elevation: 5,
+  },
+  emailText: {
+    marginBottom: 16,
+    textAlign: 'center',
+    color: '#555',
+  },
+  inputModal: {
+    marginBottom: 16,
+  },
+  saveButton: {
+    marginTop: 10,
+  },
+  textN: {
+    flexDirection: 'row',
+    gap: 15,
+    alignItems: 'center'
+  },
+  fab: {
+    position: 'absolute',
+    bottom: 30,
+    left: 30
+  },
+  fab2: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30
+  },
+
 });
