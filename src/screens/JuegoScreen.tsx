@@ -1,40 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { View, Pressable, Alert, FlatList, Text as RNText } from 'react-native';
 import { styles } from '../theme/appStyles';
-import {
-  IconButton,
-  Text,
-  Portal,
-  Modal,
-  Button,
-  Divider,
-  TextInput,
-  FAB,
-} from 'react-native-paper';
-
+import { IconButton, Text, Portal, Modal, Button, Divider, TextInput, FAB, } from 'react-native-paper';
 import { auth, dbRealtime } from '../configs/firebaseConfig';
 import { updateProfile } from 'firebase/auth';
-import { NewCommentComponent } from '../components/NewCommentComponents'; // ← Sin "s" al final (ajusta si tu archivo tiene "s")
-import { Comment, CommentComponent } from '../components/CommentComponents'; // ← Asegúrate del nombre exacto
+import { NewCommentComponent } from '../components/NewCommentComponents';
+import { Comment, CommentComponent } from '../components/CommentComponents';
 import { onValue, ref } from 'firebase/database';
 
 export const JuegoScreen: React.FC = () => {
+
   // Estados del juego
   const [targetNumber, setTargetNumber] = useState<number>(0);
   const [guess, setGuess] = useState<string>('');
-  const [message, setMessage] = useState<string>(
-    '¡Adivina un número entre 1 y 100!'
-  );
+  const [message, setMessage] = useState<string>('¡Adivina un número entre 1 y 100!');
   const [attempts, setAttempts] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   // Estados de comentarios
   const [comments, setComments] = useState<Comment[]>([]);
-  const [showAllComments, setShowAllComments] = useState(false);
-  const [showModalComment, setShowModalComment] = useState(false);
+  const [showAllComments, setShowAllComments] = useState<boolean>(false);
+  const [showModalComment, setShowModalComment] = useState<boolean>(false);
 
   // Estados del perfil
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>('');
   const [userAuth, setUserAuth] = useState<any>(null);
 
@@ -59,7 +48,6 @@ export const JuegoScreen: React.FC = () => {
     }
   }, [showAllComments]);
 
-  // Inicializar juego y usuario
   useEffect(() => {
     const randomNum = Math.floor(Math.random() * 100) + 1;
     setTargetNumber(randomNum);
@@ -76,7 +64,6 @@ export const JuegoScreen: React.FC = () => {
     }
   }, []);
 
-  // === Lógica del juego ===
   const handleInputChange = (value: string) => {
     if (/^\d*$/.test(value)) {
       setGuess(value);
@@ -117,7 +104,6 @@ export const JuegoScreen: React.FC = () => {
     console.log('Número secreto:', randomNum);
   };
 
-  // === Actualizar perfil ===
   const handleUpdateName = async () => {
     if (!userAuth || !userName.trim()) {
       Alert.alert('⚠️ Error', 'El nombre no puede estar vacío.');
@@ -188,8 +174,6 @@ export const JuegoScreen: React.FC = () => {
         style={styles.fab2}
         onPress={() => setShowModalComment(true)}
       />
-
-      {/* Modal de perfil */}
       <Portal>
         <Modal
           visible={showModal}

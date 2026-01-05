@@ -1,7 +1,6 @@
-// src/screens/LoginScreen.tsx
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import {Button,Snackbar,Text,TextInput,useTheme} from 'react-native-paper';
+import { Button, Snackbar, Text, TextInput, useTheme } from 'react-native-paper';
 import { styles } from '../theme/appStyles';
 import { auth } from '../configs/firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -42,7 +41,7 @@ export const LoginScreen = () => {
       setShowMessage({
         visible: true,
         text: 'Completa todos los campos',
-        color: '#ef5350', // Rojo suave
+        color: '#ef5350',
       });
       return;
     }

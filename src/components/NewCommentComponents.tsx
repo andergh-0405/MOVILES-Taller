@@ -45,7 +45,6 @@ export const NewCommentComponent = ({ visible, hideModal }: Props) => {
         comment: formComment.comment.trim(),
       });
 
-      // Limpiar y cerrar
       setFormComment({ comment: "" });
       hideModal();
     } catch (error) {

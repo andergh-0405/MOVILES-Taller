@@ -7,7 +7,7 @@ import { styles } from '../theme/appStyles';
 // Definir la interfaz del comentario
 export interface Comment {
   id: string;
-  author: string;     // 👈 en lugar de 'email'
+  author: string;
   comment: string;
 }
 
