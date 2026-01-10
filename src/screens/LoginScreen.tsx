@@ -36,38 +36,35 @@ export const LoginScreen = () => {
     setFormLogin({ ...formLogin, [key]: value });
   };
 
-  const handleSignIn = async () => {
-    if (!formLogin.email || !formLogin.password) {
-      setShowMessage({
-        visible: true,
-        text: 'Completa todos los campos',
-        color: '#ef5350',
-      });
-      return;
-    }
+  //función para iniciar sesión
+    const handleSingIn = async () => {
+        if (formLogin.email === "" || formLogin.password === "") {
+            setShowMessage({
+                visible: true,
+                text: "Completa todos los campos",
+                color: "#7D2715"
+            });
+            return;
+        }
+        //console.log(formLogin);
+        try {
+            const response = await signInWithEmailAndPassword(
+                auth,
+                formLogin.email,
+                formLogin.password
+            );
+            //console.log(response);
+            navigation.dispatch(CommonActions.navigate({ name: 'Juego' }));
+        } catch (error) {
+            console.log(error);
+            setShowMessage({
+                visible: true,
+                text: "Usuario y/o contraseña incorrectos",
+                color: "#7D2715"
+            });
+        }
 
-    try {
-      await signInWithEmailAndPassword(auth, formLogin.email, formLogin.password);
-      setShowMessage({
-        visible: true,
-        text: '¡Bienvenido! Inicio de sesión exitoso',
-        color: '#4caf50', // Verde
-      });
-      setFormLogin({ email: '', password: '' });
-    } catch (error: any) {
-      let msg = 'Correo o contraseña incorrectos';
-      if (error.code === 'auth/user-not-found') {
-        msg = 'Usuario no registrado';
-      } else if (error.code === 'auth/invalid-credential') {
-        msg = 'Credenciales inválidas';
-      }
-      setShowMessage({
-        visible: true,
-        text: msg,
-        color: '#ef5350',
-      });
     }
-  };
 
   return (
     <View style={styles.container}>
@@ -107,7 +104,7 @@ export const LoginScreen = () => {
 
       <Button
         mode="contained"
-        onPress={handleSignIn}
+        onPress={handleSingIn}
         style={styles.button}
         labelStyle={styles.buttonLabel}
         icon="login"

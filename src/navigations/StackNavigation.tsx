@@ -1,7 +1,7 @@
 import { createStackNavigator, Header } from '@react-navigation/stack';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RegisterScreen } from '../screens/RegisterScreen';
-import {JuegoScreen} from '../screens/JuegoScreen';
+import { JuegoScreen } from '../screens/JuegoScreen';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from '@firebase/auth';
 import { auth } from '../configs/firebaseConfig';
@@ -36,24 +36,14 @@ export const StackNavigator = () => {
             {
                 isLoading ? (
                     <View style={styles.containerActivity}>
-                        <ActivityIndicator size={30}/>
+                        <ActivityIndicator size={30} />
                     </View>
                 )
                     : (
-                        <Stack.Navigator>
-
-                            {
-                                !isAuth ?
-                                    <>
-                                        <Stack.Screen name='Login' options={{ headerShown: false }} component={LoginScreen} />
-                                        <Stack.Screen name='Register' options={{ headerShown: false }} component={RegisterScreen} />
-                                    </>
-                                    :
-                                    <Stack.Screen name='Juego' options={{ headerShown: false }} component={JuegoScreen} />
-                            }
-
-
-
+                        <Stack.Navigator initialRouteName={isAuth ? 'Juego' : 'Login'}>
+                            <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginScreen} />
+                            <Stack.Screen name="Register" options={{ headerShown: false }} component={RegisterScreen} />
+                            <Stack.Screen name="Juego" options={{ headerShown: false }} component={JuegoScreen} />
                         </Stack.Navigator>
                     )
             }
